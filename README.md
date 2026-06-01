@@ -129,31 +129,6 @@ The content script:
 * Support for additional streaming platforms.
 * Chrome Web Store publication.
 
----
-
-## 📚 Learning Outcomes
-
-Through this project, I gained hands-on experience with:
-
-* Chrome Extension Development
-* Manifest V3
-* Content Scripts
-* Browser APIs
-* JavaScript Event Handling
-* DOM Manipulation
-* Real-world Problem Solving
-
----
-
-## 👨‍💻 Author
-
-**K. Shyam Sai Manohar**
-
-B.Tech Computer Science Engineering (AIML)
-
-SRM University-AP
-
-GitHub: **shyamsai0611**
 
 ---
 
