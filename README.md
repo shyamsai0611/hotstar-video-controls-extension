@@ -1,4 +1,4 @@
-# 🎬 Hotstar Keyboard Controls Extension
+# 🎬 Hotstar Keyboard Controls Extension (Version 1.0)
 
 A Chrome Extension that enables keyboard shortcuts for video playback on JioHotstar, providing a smoother and more accessible viewing experience.
 
@@ -8,11 +8,11 @@ A Chrome Extension that enables keyboard shortcuts for video playback on JioHots
 
 Many users prefer controlling video playback using keyboard shortcuts. However, on some streaming platforms, common controls such as seeking forward/backward, adjusting volume, and play/pause may not be readily available through keyboard interactions.
 
-The goal of this project is to improve the user experience by introducing intuitive keyboard controls for video playback through a lightweight Chrome Extension.
+The goal of this project is to improve the user experience by introducing intuitive keyboard controls through a lightweight Chrome Extension.
 
 ---
 
-## 🚀 Features
+## 🚀 Version 1.0 Features
 
 ### Playback Controls
 
@@ -33,6 +33,7 @@ The goal of this project is to improve the user experience by introducing intuit
 * Built using Chrome Extension Manifest V3.
 * No external dependencies.
 * Easy to install and use.
+* Works directly on supported JioHotstar video pages.
 
 ---
 
@@ -120,15 +121,29 @@ The content script:
 
 ---
 
-## 🎯 Future Enhancements
+## 🎯 Roadmap (Upcoming Versions)
+
+### Version 2.0
 
 * On-screen playback notifications.
+* Visual feedback for seek and volume actions.
+* Improved UI experience.
+
+### Future Enhancements
+
 * Customizable skip intervals.
 * Extension settings popup.
 * User-defined keyboard shortcuts.
 * Support for additional streaming platforms.
 * Chrome Web Store publication.
 
+---
+
+## 📦 Current Release
+
+**Version:** 1.0
+
+This is the first public release of the extension and focuses on providing essential keyboard playback controls for JioHotstar users.
 
 ---
 
