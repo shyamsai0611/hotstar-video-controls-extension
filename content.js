@@ -1,4 +1,45 @@
-console.log("Hotstar Keyboard Controls Loaded");
+console.log("Hotstar Keyboard Controls v2.0 Loaded");
+
+let overlayTimeout;
+
+function showOverlay(message) {
+
+    let overlay = document.getElementById("hotstar-overlay");
+
+    if (!overlay) {
+
+        overlay = document.createElement("div");
+        overlay.id = "hotstar-overlay";
+
+        overlay.style.position = "fixed";
+        overlay.style.top = "50%";
+        overlay.style.left = "50%";
+        overlay.style.transform = "translate(-50%, -50%)";
+
+        overlay.style.background = "rgba(0,0,0,0.8)";
+        overlay.style.color = "white";
+
+        overlay.style.padding = "20px 30px";
+        overlay.style.borderRadius = "12px";
+
+        overlay.style.fontSize = "28px";
+        overlay.style.fontWeight = "bold";
+
+        overlay.style.zIndex = "999999";
+        overlay.style.pointerEvents = "none";
+
+        document.body.appendChild(overlay);
+    }
+
+    overlay.innerText = message;
+    overlay.style.display = "block";
+
+    clearTimeout(overlayTimeout);
+
+    overlayTimeout = setTimeout(() => {
+        overlay.style.display = "none";
+    }, 1000);
+}
 
 window.addEventListener(
     "keydown",
@@ -6,100 +47,98 @@ window.addEventListener(
 
         const video = document.querySelector("video");
 
-        if (!video) {
-            console.log("Video not found");
-            return;
-        }
+        if (!video) return;
 
         // Forward 10 sec
         if (event.key === "ArrowRight" && !event.shiftKey) {
+
             event.preventDefault();
-            event.stopPropagation();
 
             video.currentTime += 10;
 
-            console.log(
-                "⏩ Forward 10 sec | Current Time:",
-                video.currentTime
-            );
+            showOverlay("⏩ +10s");
+
+            console.log("Forward 10 sec");
         }
 
         // Backward 10 sec
         if (event.key === "ArrowLeft" && !event.shiftKey) {
+
             event.preventDefault();
-            event.stopPropagation();
 
             video.currentTime -= 10;
 
-            console.log(
-                "⏪ Backward 10 sec | Current Time:",
-                video.currentTime
-            );
+            showOverlay("⏪ -10s");
+
+            console.log("Backward 10 sec");
         }
 
         // Forward 30 sec
         if (event.key === "ArrowRight" && event.shiftKey) {
+
             event.preventDefault();
-            event.stopPropagation();
 
             video.currentTime += 30;
 
-            console.log(
-                "⏩⏩ Forward 30 sec | Current Time:",
-                video.currentTime
-            );
+            showOverlay("⏩ +30s");
         }
 
         // Backward 30 sec
         if (event.key === "ArrowLeft" && event.shiftKey) {
+
             event.preventDefault();
-            event.stopPropagation();
 
             video.currentTime -= 30;
 
-            console.log(
-                "⏪⏪ Backward 30 sec | Current Time:",
-                video.currentTime
-            );
+            showOverlay("⏪ -30s");
         }
 
         // Play / Pause
         if (event.code === "Space") {
+
             event.preventDefault();
-            event.stopPropagation();
 
             if (video.paused) {
+
                 video.play();
-                console.log("▶️ Play");
+
+                showOverlay("▶️ Playing");
+
             } else {
+
                 video.pause();
-                console.log("⏸ Pause");
+
+                showOverlay("⏸ Paused");
             }
         }
 
         // Volume Up
         if (event.key === "ArrowUp") {
+
             event.preventDefault();
-            event.stopPropagation();
 
-            video.volume = Math.min(1, video.volume + 0.1);
+            video.volume = Math.min(
+                1,
+                video.volume + 0.1
+            );
 
-            console.log(
-                "🔊 Volume:",
-                Math.round(video.volume * 100) + "%"
+            showOverlay(
+                `🔊 ${Math.round(video.volume * 100)}%`
             );
         }
 
         // Volume Down
         if (event.key === "ArrowDown") {
+
             event.preventDefault();
-            event.stopPropagation();
 
-            video.volume = Math.max(0, video.volume - 0.1);
+            video.volume = Math.max(
+                0,
+                video.volume - 0.1
+            );
 
-            console.log(
-                "🔉 Volume:",
-                Math.round(video.volume * 100) + "%"
+            showOverlay(
+                `🔉 ${Math.round(video.volume * 100)}%`
             );
         }
     },
