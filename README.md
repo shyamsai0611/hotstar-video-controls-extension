@@ -74,7 +74,7 @@ Hotstar-Control-Extension/
 
 ---
 
-## ⚙️ Installation
+##  Installation
 
 ### 1. Clone the Repository
 
