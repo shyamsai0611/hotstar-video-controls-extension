@@ -1,8 +1,30 @@
-console.log("Hotstar Keyboard Controls v2.0 Loaded");
+console.log("Hotstar Keyboard Controls v3.0 Loaded");
 
 let overlayTimeout;
 
+// Default Settings
+let SETTINGS = {
+    skipTime: 10,
+    volumeStep: 0.1,
+    notifications: true
+};
+
+// Load settings from Chrome Storage
+chrome.storage.sync.get(
+    {
+        skipTime: 10,
+        volumeStep: 0.1,
+        notifications: true
+    },
+    (data) => {
+        SETTINGS = data;
+        console.log("Loaded Settings:", SETTINGS);
+    }
+);
+
 function showOverlay(message) {
+
+    if (!SETTINGS.notifications) return;
 
     let overlay = document.getElementById("hotstar-overlay");
 
@@ -49,48 +71,48 @@ window.addEventListener(
 
         if (!video) return;
 
-        // Forward 10 sec
+        // Forward
         if (event.key === "ArrowRight" && !event.shiftKey) {
 
             event.preventDefault();
 
-            video.currentTime += 10;
+            video.currentTime += SETTINGS.skipTime;
 
-            showOverlay("⏩ +10s");
+            showOverlay(`⏩ +${SETTINGS.skipTime}s`);
 
-            console.log("Forward 10 sec");
+            console.log(`Forward ${SETTINGS.skipTime} sec`);
         }
 
-        // Backward 10 sec
+        // Backward
         if (event.key === "ArrowLeft" && !event.shiftKey) {
 
             event.preventDefault();
 
-            video.currentTime -= 10;
+            video.currentTime -= SETTINGS.skipTime;
 
-            showOverlay("⏪ -10s");
+            showOverlay(`⏪ -${SETTINGS.skipTime}s`);
 
-            console.log("Backward 10 sec");
+            console.log(`Backward ${SETTINGS.skipTime} sec`);
         }
 
-        // Forward 30 sec
+        // Shift + Forward
         if (event.key === "ArrowRight" && event.shiftKey) {
 
             event.preventDefault();
 
-            video.currentTime += 30;
+            video.currentTime += SETTINGS.skipTime * 3;
 
-            showOverlay("⏩ +30s");
+            showOverlay(`⏩ +${SETTINGS.skipTime * 3}s`);
         }
 
-        // Backward 30 sec
+        // Shift + Backward
         if (event.key === "ArrowLeft" && event.shiftKey) {
 
             event.preventDefault();
 
-            video.currentTime -= 30;
+            video.currentTime -= SETTINGS.skipTime * 3;
 
-            showOverlay("⏪ -30s");
+            showOverlay(`⏪ -${SETTINGS.skipTime * 3}s`);
         }
 
         // Play / Pause
@@ -119,7 +141,7 @@ window.addEventListener(
 
             video.volume = Math.min(
                 1,
-                video.volume + 0.1
+                video.volume + SETTINGS.volumeStep
             );
 
             showOverlay(
@@ -134,7 +156,7 @@ window.addEventListener(
 
             video.volume = Math.max(
                 0,
-                video.volume - 0.1
+                video.volume - SETTINGS.volumeStep
             );
 
             showOverlay(

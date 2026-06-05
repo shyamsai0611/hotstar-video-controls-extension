@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotstar Controls</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+    <h2> Hotstar Controls</h2>
+
+    <label>Skip Duration</label>
+    <select id="skipTime">
+        <option value="5">5 sec</option>
+        <option value="10">10 sec</option>
+        <option value="30">30 sec</option>
+        <option value="60">60 sec</option>
+    </select>
+
+    <label>Volume Step</label>
+    <select id="volumeStep">
+        <option value="0.05">5%</option>
+        <option value="0.1">10%</option>
+        <option value="0.2">20%</option>
+    </select>
+
+    <label>
+        <input type="checkbox" id="notifications">
+        Enable Notifications
+    </label>
+
+    <button id="saveBtn">Save Settings</button>
+
+    <script src="popup.js"></script>
+
+</body>
+</html>

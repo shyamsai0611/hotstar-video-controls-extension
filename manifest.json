@@ -1,14 +1,20 @@
 {
   "manifest_version": 3,
   "name": "Hotstar Keyboard Controls",
-  "version": "2.0",
-  "description": "Enable keyboard controls on Hotstar videos",
+  "version": "3.0",
+  "description": "Custom keyboard controls for JioHotstar.",
+
+  "permissions": [
+    "storage"
+  ],
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
   "content_scripts": [
     {
-      "matches": [
-        "*://*.hotstar.com/*",
-        "*://*.jiohotstar.com/*"
-      ],
+      "matches": ["https://www.hotstar.com/*"],
       "js": ["content.js"]
     }
   ]
