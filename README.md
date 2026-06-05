@@ -36,26 +36,27 @@ Version 3.0 is the latest stable release and transforms the extension from a sim
 
 ### ⚙️ Custom Settings Panel (New in Version 3.0)
 
-Users can configure extension behavior directly from the popup:
+Users can configure extension behavior directly from the popup.
 
-* Custom Skip Duration
+#### Skip Duration Options
 
-  * 5 sec
-  * 10 sec
-  * 30 sec
-  * 60 sec
+* 5 seconds
+* 10 seconds
+* 30 seconds
+* 60 seconds
 
-* Custom Volume Step
+#### Volume Step Options
 
-  * 5%
-  * 10%
-  * 20%
+* 5%
+* 10%
+* 20%
+
+#### Additional Controls
 
 * Enable / Disable Overlay Notifications
-
 * Persistent Settings Storage using Chrome Storage API
 
-All settings are saved automatically and remain available across browser sessions.
+All settings remain saved even after restarting Chrome.
 
 ---
 
@@ -69,11 +70,13 @@ All settings are saved automatically and remain available across browser session
 
 Examples:
 
-* ⏩ +30s
-* ⏪ -30s
-* ▶️ Playing
-* ⏸ Paused
-* 🔊 80%
+```text
+⏩ +30s
+⏪ -30s
+▶️ Playing
+⏸ Paused
+🔊 80%
+```
 
 ---
 
@@ -154,7 +157,7 @@ Open JioHotstar, play a video, and use the keyboard shortcuts.
 
 ## 🎮 Usage Example
 
-Open the extension popup and configure:
+Configure the extension popup:
 
 ```text
 Skip Duration = 30 sec
@@ -162,7 +165,7 @@ Volume Step = 20%
 Notifications = Enabled
 ```
 
-Now:
+Result:
 
 * → jumps forward 30 seconds
 * ← jumps backward 30 seconds
@@ -193,34 +196,34 @@ All actions are performed directly on the video element without modifying the st
 
 ## 📦 Release History
 
-### Version 3.0 (Current Stable Release)
+### 🚀 Version 3.0 (Current Stable Release)
 
 #### New Features
 
-* Added Settings Popup UI
-* Added Custom Skip Duration
-* Added Custom Volume Step
-* Added Chrome Storage API Integration
-* Added Persistent User Preferences
-* Added Notification Toggle
+* Settings Popup UI
+* Custom Skip Duration
+* Custom Volume Step
+* Chrome Storage API Integration
+* Persistent User Preferences
+* Notification Toggle
 * Improved User Experience
 * Enhanced Extension Architecture
 
 ---
 
-### Version 2.0
+### 🎨 Version 2.0
 
 #### Features
 
-* Added On-Screen Overlay Notifications
-* Added Play/Pause Feedback
-* Added Volume Notifications
-* Added Seek Notifications
+* On-Screen Overlay Notifications
+* Play/Pause Feedback
+* Volume Notifications
+* Seek Notifications
 * Improved Accessibility
 
 ---
 
-### Version 1.0
+### 🎬 Version 1.0
 
 #### Initial Release
 
@@ -234,6 +237,22 @@ All actions are performed directly on the video element without modifying the st
 
 ---
 
+## 🔖 Release Information
+
+### Current Stable Release
+
+| Version | Tag  | Status                 |
+| ------- | ---- | ---------------------- |
+| 3.0     | v3.0 | Current Stable Release |
+| 2.0     | v2.0 | Previous Release       |
+| 1.0     | v1.0 | Initial Release        |
+
+### Release Name
+
+**Hotstar Keyboard Controls Extension v3.0 – Custom Settings & User Preferences**
+
+---
+
 ## 🎯 Future Enhancements
 
 Planned improvements include:
@@ -242,7 +261,7 @@ Planned improvements include:
 * Keyboard Shortcut Customization
 * Fullscreen Toggle
 * Mute / Unmute Shortcut
-* Multi-Platform Support
+* Multiple Streaming Platform Support
 * Dark / Light Notification Themes
 * Chrome Web Store Publication
 
@@ -260,26 +279,6 @@ The purpose of this project is to:
 
 ---
 
-## ⭐ GitHub Release
-
-### Stable Release
-
-Tag: v3.0
-
-Release Name: Hotstar Keyboard Controls Extension v3.0 – Custom Settings & User Preferences
-
-### What's New
-
-* Settings Popup UI
-* Adjustable Skip Duration
-* Adjustable Volume Controls
-* Chrome Storage API Integration
-* Persistent User Preferences
-* Notification Toggle
-* Improved User Experience
-
----
-
 ## 🤝 Contributions
 
 Suggestions, improvements, and feature requests are welcome.
@@ -290,4 +289,4 @@ Feel free to fork the repository, submit issues, or create pull requests.
 
 ## ⭐ Acknowledgements
 
-Created as a learning project to explore Chrome Extension development, browser automation concepts, and keyboard accessibility for video streaming platforms.
+Created as a learning project to explore Chrome Extension development, browser automation concepts, Chrome Storage API integration, and keyboard accessibility for video streaming platforms.
