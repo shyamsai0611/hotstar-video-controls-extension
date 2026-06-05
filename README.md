@@ -1,18 +1,20 @@
-# 🎬 Hotstar Keyboard Controls Extension (Version 2.0)
+# 🎬 Hotstar Keyboard Controls Extension (Version 3.0)
 
-A Chrome Extension that enhances the JioHotstar viewing experience by providing intuitive keyboard shortcuts and real-time on-screen feedback for video playback controls.
-
-## 📌 Overview
-
-Hotstar Keyboard Controls Extension allows users to control video playback directly from their keyboard without relying on mouse interactions. The extension automatically detects the active video player and provides seamless playback control along with visual notifications.
-
-Version 2.0 introduces on-screen overlay notifications, making user actions visible and improving the overall viewing experience.
+A Chrome Extension that enhances the JioHotstar viewing experience by providing keyboard shortcuts, on-screen notifications, and customizable playback controls through a user-friendly settings panel.
 
 ---
 
-## 🚀 Current Stable Release: Version 2.0
+## 📌 Overview
 
-Version 2.0 is the first stable release of the project and includes enhanced usability features, visual feedback, and improved interaction with the video player.
+Hotstar Keyboard Controls Extension allows users to control video playback directly from their keyboard without relying on mouse interactions. The extension automatically detects the active video player and provides seamless playback control, visual feedback, and user-configurable settings.
+
+Version 3.0 introduces a dedicated settings popup, customizable skip durations, adjustable volume controls, and persistent user preferences using Chrome Storage API.
+
+---
+
+## 🚀 Current Stable Release: Version 3.0
+
+Version 3.0 is the latest stable release and transforms the extension from a simple keyboard utility into a configurable Chrome Extension product.
 
 ---
 
@@ -20,34 +22,70 @@ Version 2.0 is the first stable release of the project and includes enhanced usa
 
 ### 🎮 Playback Controls
 
-| Shortcut  | Action              |
-| --------- | ------------------- |
-| →         | Forward 10 seconds  |
-| ←         | Backward 10 seconds |
-| Shift + → | Forward 30 seconds  |
-| Shift + ← | Backward 30 seconds |
-| Space     | Play / Pause        |
-| ↑         | Volume Up           |
-| ↓         | Volume Down         |
+| Shortcut  | Action                     |
+| --------- | -------------------------- |
+| →         | Forward (Custom Duration)  |
+| ←         | Backward (Custom Duration) |
+| Shift + → | Forward 3× Skip Duration   |
+| Shift + ← | Backward 3× Skip Duration  |
+| Space     | Play / Pause               |
+| ↑         | Volume Up                  |
+| ↓         | Volume Down                |
 
-### 🎨 On-Screen Overlay Notifications (New in Version 2.0)
+---
 
-* Visual notification when seeking forward
-* Visual notification when seeking backward
+### ⚙️ Custom Settings Panel (New in Version 3.0)
+
+Users can configure extension behavior directly from the popup:
+
+* Custom Skip Duration
+
+  * 5 sec
+  * 10 sec
+  * 30 sec
+  * 60 sec
+
+* Custom Volume Step
+
+  * 5%
+  * 10%
+  * 20%
+
+* Enable / Disable Overlay Notifications
+
+* Persistent Settings Storage using Chrome Storage API
+
+All settings are saved automatically and remain available across browser sessions.
+
+---
+
+### 🎨 On-Screen Overlay Notifications
+
+* Forward / Backward notifications
+* Play / Pause status
 * Volume percentage display
-* Play notification
-* Pause notification
-* Smooth fade-in and fade-out effects
-* Lightweight overlay implementation
+* Real-time visual feedback
+* Lightweight implementation
+
+Examples:
+
+* ⏩ +30s
+* ⏪ -30s
+* ▶️ Playing
+* ⏸ Paused
+* 🔊 80%
+
+---
 
 ### ⚡ Highlights
 
 * Automatic video element detection
 * Lightweight and efficient
 * Built using Chrome Extension Manifest V3
-* No external libraries or dependencies
-* Easy installation and usage
+* No external dependencies
+* Customizable user experience
 * Real-time visual feedback
+* Persistent user preferences
 * Works directly on JioHotstar video pages
 
 ---
@@ -56,6 +94,7 @@ Version 2.0 is the first stable release of the project and includes enhanced usa
 
 * JavaScript (ES6)
 * Chrome Extensions API
+* Chrome Storage API
 * Manifest V3
 * DOM Manipulation
 * Event Handling
@@ -69,12 +108,17 @@ Hotstar-Control-Extension/
 │
 ├── manifest.json
 ├── content.js
-├── README.md
+│
+├── popup.html
+├── popup.js
+├── popup.css
+│
+└── README.md
 ```
 
 ---
 
-##  Installation
+## ⚙️ Installation
 
 ### 1. Clone the Repository
 
@@ -83,8 +127,6 @@ git clone https://github.com/shyamsai0611/hotstar-video-controls-extension.git
 ```
 
 ### 2. Open Chrome Extensions
-
-Navigate to:
 
 ```text
 chrome://extensions
@@ -112,17 +154,22 @@ Open JioHotstar, play a video, and use the keyboard shortcuts.
 
 ## 🎮 Usage Example
 
-While watching a video:
+Open the extension popup and configure:
 
-* Press → to jump forward 10 seconds
-* Press ← to jump backward 10 seconds
-* Press Shift + → to jump forward 30 seconds
-* Press Shift + ← to jump backward 30 seconds
-* Press Space to play or pause
-* Press ↑ to increase volume
-* Press ↓ to decrease volume
+```text
+Skip Duration = 30 sec
+Volume Step = 20%
+Notifications = Enabled
+```
 
-Every action displays a visual notification on the screen.
+Now:
+
+* → jumps forward 30 seconds
+* ← jumps backward 30 seconds
+* Shift + → jumps forward 90 seconds
+* Shift + ← jumps backward 90 seconds
+* ↑ increases volume by 20%
+* ↓ decreases volume by 20%
 
 ---
 
@@ -137,7 +184,8 @@ The content script:
 * Updates playback position
 * Adjusts volume levels
 * Controls play/pause functionality
-* Displays on-screen notifications for user actions
+* Displays overlay notifications
+* Reads user settings from Chrome Storage
 
 All actions are performed directly on the video element without modifying the streaming platform itself.
 
@@ -145,16 +193,32 @@ All actions are performed directly on the video element without modifying the st
 
 ## 📦 Release History
 
-### Version 2.0 (Current Stable Release)
+### Version 3.0 (Current Stable Release)
 
 #### New Features
 
-* Added on-screen overlay notifications
-* Added play/pause status feedback
-* Added volume level notifications
-* Added forward/backward seek notifications
-* Improved overall user experience
-* Enhanced accessibility and usability
+* Added Settings Popup UI
+* Added Custom Skip Duration
+* Added Custom Volume Step
+* Added Chrome Storage API Integration
+* Added Persistent User Preferences
+* Added Notification Toggle
+* Improved User Experience
+* Enhanced Extension Architecture
+
+---
+
+### Version 2.0
+
+#### Features
+
+* Added On-Screen Overlay Notifications
+* Added Play/Pause Feedback
+* Added Volume Notifications
+* Added Seek Notifications
+* Improved Accessibility
+
+---
 
 ### Version 1.0
 
@@ -164,9 +228,9 @@ All actions are performed directly on the video element without modifying the st
 * Backward 10 seconds
 * Forward 30 seconds
 * Backward 30 seconds
-* Play/Pause control
-* Volume Up/Down control
-* Automatic video detection
+* Play/Pause Controls
+* Volume Up/Down Controls
+* Automatic Video Detection
 
 ---
 
@@ -174,12 +238,13 @@ All actions are performed directly on the video element without modifying the st
 
 Planned improvements include:
 
-* Customizable skip intervals
-* User-defined keyboard shortcuts
-* Extension settings popup
-* Multiple streaming platform support
-* Dark and light notification themes
-* Chrome Web Store publication
+* Playback Speed Controls
+* Keyboard Shortcut Customization
+* Fullscreen Toggle
+* Mute / Unmute Shortcut
+* Multi-Platform Support
+* Dark / Light Notification Themes
+* Chrome Web Store Publication
 
 ---
 
@@ -189,8 +254,9 @@ The purpose of this project is to:
 
 * Improve keyboard accessibility for video streaming
 * Learn Chrome Extension development
-* Explore DOM manipulation and event handling
+* Explore Chrome Storage API
 * Build practical browser productivity tools
+* Create a configurable user-focused extension
 
 ---
 
@@ -198,16 +264,19 @@ The purpose of this project is to:
 
 ### Stable Release
 
-**Tag:** v2.0
+Tag: v3.0
 
-**Release Name:** Hotstar Keyboard Controls Extension v2.0 - Stable Release
+Release Name: Hotstar Keyboard Controls Extension v3.0 – Custom Settings & User Preferences
 
 ### What's New
 
-* On-screen playback notifications
-* Visual feedback for all controls
-* Better user experience
-* Improved extension stability
+* Settings Popup UI
+* Adjustable Skip Duration
+* Adjustable Volume Controls
+* Chrome Storage API Integration
+* Persistent User Preferences
+* Notification Toggle
+* Improved User Experience
 
 ---
 
@@ -221,4 +290,4 @@ Feel free to fork the repository, submit issues, or create pull requests.
 
 ## ⭐ Acknowledgements
 
-Created as a learning project to explore Chrome Extension development and improve keyboard accessibility for video streaming platforms.
+Created as a learning project to explore Chrome Extension development, browser automation concepts, and keyboard accessibility for video streaming platforms.
