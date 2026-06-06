@@ -12,7 +12,7 @@ Version 3.0 introduces a dedicated settings popup, customizable skip durations, 
 
 ---
 
-## 🚀 Current Stable Release: Version 3.0
+##  Current Stable Release: Version 3.0
 
 Version 3.0 is the latest stable release and transforms the extension from a simple keyboard utility into a configurable Chrome Extension product.
 
@@ -34,7 +34,7 @@ Version 3.0 is the latest stable release and transforms the extension from a sim
 
 ---
 
-### ⚙️ Custom Settings Panel (New in Version 3.0)
+###  Custom Settings Panel (New in Version 3.0)
 
 Users can configure extension behavior directly from the popup.
 
@@ -60,7 +60,7 @@ All settings remain saved even after restarting Chrome.
 
 ---
 
-### 🎨 On-Screen Overlay Notifications
+###  On-Screen Overlay Notifications
 
 * Forward / Backward notifications
 * Play / Pause status
@@ -80,7 +80,7 @@ Examples:
 
 ---
 
-### ⚡ Highlights
+###  Highlights
 
 * Automatic video element detection
 * Lightweight and efficient
@@ -93,7 +93,7 @@ Examples:
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * JavaScript (ES6)
 * Chrome Extensions API
@@ -155,7 +155,7 @@ Open JioHotstar, play a video, and use the keyboard shortcuts.
 
 ---
 
-## 🎮 Usage Example
+##  Usage Example
 
 Configure the extension popup:
 
@@ -176,7 +176,7 @@ Result:
 
 ---
 
-## 🔍 How It Works
+##  How It Works
 
 The extension injects a content script into supported pages.
 
