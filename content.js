@@ -1,4 +1,4 @@
-console.log("Hotstar Keyboard Controls v4.0 Loaded");
+console.log("Hotstar Keyboard Controls v4.5 Loaded");
 
 let overlayTimeout;
 
@@ -10,6 +10,60 @@ let SETTINGS = {
     playbackSpeed: 1
 };
 
+function applyPlaybackSpeed() {
+
+    const video = document.querySelector("video");
+
+    if (!video) return;
+
+    if (video.playbackRate !== SETTINGS.playbackSpeed) {
+
+        video.playbackRate = SETTINGS.playbackSpeed;
+
+        console.log(
+            `Playback Speed Applied: ${SETTINGS.playbackSpeed}x`
+        );
+    }
+}
+
+
+chrome.storage.onChanged.addListener((changes, area) => {
+
+    if (area === "sync") {
+
+        if (changes.skipTime) {
+            SETTINGS.skipTime = changes.skipTime.newValue;
+        }
+
+        if (changes.volumeStep) {
+            SETTINGS.volumeStep = changes.volumeStep.newValue;
+        }
+
+        if (changes.notifications) {
+            SETTINGS.notifications = changes.notifications.newValue;
+        }
+
+        if (changes.playbackSpeed) {
+            SETTINGS.playbackSpeed =
+                changes.playbackSpeed.newValue;
+
+            const video =
+                document.querySelector("video");
+
+            applyPlaybackSpeed();
+
+            showOverlay(
+                ` ${SETTINGS.playbackSpeed}x`
+            );
+        }
+
+        console.log(
+            "Settings Updated:",
+            SETTINGS
+        );
+    }
+});
+
 // Load settings from Chrome Storage
 chrome.storage.sync.get(
     {
@@ -20,31 +74,38 @@ chrome.storage.sync.get(
     },
     (data) => {
         SETTINGS = data;
+        applyPlaybackSpeed();
         console.log("Loaded Settings:", SETTINGS);
     }
 );
 
 // Apply default playback speed when video loads
+// setInterval(() => {
+
+//     const video = document.querySelector("video");
+
+//     if (
+//         video &&
+//         !video.dataset.hotstarSpeedApplied
+//     ) {
+
+//         video.playbackRate =
+//             SETTINGS.playbackSpeed;
+
+//         video.dataset.hotstarSpeedApplied = "true";
+
+//         console.log(
+//             `Playback Speed Applied: ${SETTINGS.playbackSpeed}x`
+//         );
+//     }
+
+// }, 1000);
+
 setInterval(() => {
 
-    const video = document.querySelector("video");
+    applyPlaybackSpeed();
 
-    if (
-        video &&
-        !video.dataset.hotstarSpeedApplied
-    ) {
-
-        video.playbackRate =
-            SETTINGS.playbackSpeed;
-
-        video.dataset.hotstarSpeedApplied = "true";
-
-        console.log(
-            `Playback Speed Applied: ${SETTINGS.playbackSpeed}x`
-        );
-    }
-
-}, 1000);
+}, 2000);
 
 function showOverlay(message) {
 

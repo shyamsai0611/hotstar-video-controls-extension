@@ -2,7 +2,9 @@ const skipTime = document.getElementById("skipTime");
 const volumeStep = document.getElementById("volumeStep");
 const notifications = document.getElementById("notifications");
 const playbackSpeed = document.getElementById("playbackSpeed");
+const statusMessage = document.getElementById("statusMessage");
 
+// Load saved settings
 chrome.storage.sync.get(
 {
     skipTime: 10,
@@ -11,12 +13,15 @@ chrome.storage.sync.get(
     playbackSpeed: 1
 },
 (data) => {
+
     skipTime.value = data.skipTime;
     volumeStep.value = data.volumeStep;
     notifications.checked = data.notifications;
     playbackSpeed.value = data.playbackSpeed;
-});
 
+});
+    
+// Save settings
 document.getElementById("saveBtn").addEventListener("click", () => {
 
     chrome.storage.sync.set({
@@ -26,5 +31,11 @@ document.getElementById("saveBtn").addEventListener("click", () => {
         playbackSpeed: Number(playbackSpeed.value)
     });
 
-    alert("Settings Saved!");
+    // Show success message
+    statusMessage.innerText = "Settings Saved";
+
+    setTimeout(() => {
+        statusMessage.innerText = "";
+    }, 2000);
+
 });

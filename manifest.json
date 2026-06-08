@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Hotstar Keyboard Controls",
-  "version": "4.0",
+  "version": "4.5",
   "description": "Custom keyboard controls for JioHotstar.",
 
   "permissions": [

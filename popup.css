@@ -1,26 +1,96 @@
 body{
-    width:250px;
-    padding:15px;
-    font-family:Arial,sans-serif;
+    width:320px;
+    padding:18px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:#f8f9fa;
+    color:#222;
+    margin:0;
 }
 
 h2{
-    margin-bottom:15px;
+    text-align:center;
+    margin:0;
+    font-size:22px;
+}
+
+.version{
+    text-align:center;
+    color:#666;
+    font-size:12px;
+    margin-top:4px;
+    margin-bottom:18px;
+}
+
+h3{
+    margin-top:18px;
+    margin-bottom:10px;
+    font-size:15px;
+    color:#333;
 }
 
 label{
     display:block;
     margin-top:10px;
+    margin-bottom:4px;
+    font-size:14px;
+    font-weight:500;
 }
 
 select{
     width:100%;
-    margin-top:5px;
+    padding:8px 10px;
+    border:1px solid #d0d7de;
+    border-radius:8px;
+    font-size:14px;
+    background:white;
+    cursor:pointer;
+    outline:none;
+}
+
+select:focus{
+    border-color:#4a90e2;
+}
+
+.checkbox-container{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:12px;
 }
 
 button{
     width:100%;
-    margin-top:15px;
-    padding:8px;
+    margin-top:18px;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:15px;
+    font-weight:600;
     cursor:pointer;
+    transition:0.2s;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+button:active{
+    transform:scale(0.98);
+}
+
+#statusMessage{
+    text-align:center;
+    margin-top:12px;
+    font-size:13px;
+    color:#16a34a;
+    font-weight:600;
+}
+
+.settings-card{
+    background:white;
+    border-radius:12px;
+    padding:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
