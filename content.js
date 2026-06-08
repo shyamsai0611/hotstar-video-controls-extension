@@ -1,4 +1,4 @@
-console.log("Hotstar Keyboard Controls v3.0 Loaded");
+console.log("Hotstar Keyboard Controls v4.0 Loaded");
 
 let overlayTimeout;
 
@@ -6,7 +6,8 @@ let overlayTimeout;
 let SETTINGS = {
     skipTime: 10,
     volumeStep: 0.1,
-    notifications: true
+    notifications: true,
+    playbackSpeed: 1
 };
 
 // Load settings from Chrome Storage
@@ -14,13 +15,36 @@ chrome.storage.sync.get(
     {
         skipTime: 10,
         volumeStep: 0.1,
-        notifications: true
+        notifications: true,
+        playbackSpeed: 1
     },
     (data) => {
         SETTINGS = data;
         console.log("Loaded Settings:", SETTINGS);
     }
 );
+
+// Apply default playback speed when video loads
+setInterval(() => {
+
+    const video = document.querySelector("video");
+
+    if (
+        video &&
+        !video.dataset.hotstarSpeedApplied
+    ) {
+
+        video.playbackRate =
+            SETTINGS.playbackSpeed;
+
+        video.dataset.hotstarSpeedApplied = "true";
+
+        console.log(
+            `Playback Speed Applied: ${SETTINGS.playbackSpeed}x`
+        );
+    }
+
+}, 1000);
 
 function showOverlay(message) {
 
@@ -162,6 +186,46 @@ window.addEventListener(
             showOverlay(
                 `🔉 ${Math.round(video.volume * 100)}%`
             );
+        }
+
+        // Increase Playback Speed
+        if (event.key === "]") {
+
+            event.preventDefault();
+
+            video.playbackRate = Math.min(
+                2,
+                video.playbackRate + 0.25
+            );
+
+            showOverlay(
+                `⚡ ${video.playbackRate.toFixed(2)}x`
+            );
+        }
+
+        // Decrease Playback Speed
+        if (event.key === "[") {
+
+            event.preventDefault();
+
+            video.playbackRate = Math.max(
+                0.5,
+                video.playbackRate - 0.25
+            );
+
+            showOverlay(
+                `⚡ ${video.playbackRate.toFixed(2)}x`
+            );
+        }
+
+        // Reset Playback Speed
+        if (event.key === "\\") {
+
+            event.preventDefault();
+
+            video.playbackRate = 1;
+
+            showOverlay("⚡ 1x");
         }
     },
     true
