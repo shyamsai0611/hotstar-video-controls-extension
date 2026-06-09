@@ -7,7 +7,8 @@ let SETTINGS = {
     skipTime: 10,
     volumeStep: 0.1,
     notifications: true,
-    playbackSpeed: 1
+    playbackSpeed: 1,
+    liveSeekStep: 60
 };
 
 function applyPlaybackSpeed() {
@@ -57,6 +58,10 @@ chrome.storage.onChanged.addListener((changes, area) => {
             );
         }
 
+        if (changes.liveSeekStep) {
+            SETTINGS.liveSeekStep = changes.liveSeekStep.newValue;
+        }
+
         console.log(
             "Settings Updated:",
             SETTINGS
@@ -70,7 +75,8 @@ chrome.storage.sync.get(
         skipTime: 10,
         volumeStep: 0.1,
         notifications: true,
-        playbackSpeed: 1
+        playbackSpeed: 1,
+        liveSeekStep: 60
     },
     (data) => {
         SETTINGS = data;
@@ -287,6 +293,28 @@ window.addEventListener(
             video.playbackRate = 1;
 
             showOverlay("⚡ 1x");
+        }
+
+        if (event.key === "j") {
+
+            event.preventDefault();
+
+            video.currentTime -= SETTINGS.liveSeekStep;
+
+            showOverlay(
+                `⏪ ${SETTINGS.liveSeekStep}s`
+            );
+        }
+
+        if (event.key === "l") {
+
+            event.preventDefault();
+
+            video.currentTime += SETTINGS.liveSeekStep;
+
+            showOverlay(
+                `⏩ ${SETTINGS.liveSeekStep}s`
+            );
         }
     },
     true

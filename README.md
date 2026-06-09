@@ -1,6 +1,6 @@
-# 🎬 Hotstar Keyboard Controls Extension (Version 4.5)
+# 🎬 Hotstar Keyboard Controls Extension (Version 5.0)
 
-A Chrome Extension that enhances the JioHotstar viewing experience by providing keyboard shortcuts, on-screen notifications, customizable playback controls, playback speed management, and a cleaner user-friendly settings panel.
+A Chrome Extension that enhances the JioHotstar viewing experience by providing keyboard shortcuts, on-screen notifications, customizable playback controls, playback speed management, live stream controls, and a clean user-friendly settings panel.
 
 ---
 
@@ -8,15 +8,15 @@ A Chrome Extension that enhances the JioHotstar viewing experience by providing 
 
 Hotstar Keyboard Controls Extension allows users to control video playback directly from their keyboard without relying on mouse interactions.
 
-The extension automatically detects the active video player and provides seamless playback control, visual feedback, persistent settings, and customizable playback preferences.
+The extension automatically detects the active video player and provides seamless playback control, visual feedback, persistent settings, customizable playback preferences, and enhanced controls for live sports streaming.
 
-Version 4.5 focuses on improving the extension's user experience by introducing a cleaner popup interface, real-time settings synchronization, and enhanced playback speed controls.
+Version 5.0 introduces dedicated Live Stream Controls, allowing users to quickly navigate within supported live streams using configurable keyboard shortcuts.
 
 ---
 
-## 🚀 Current Stable Release: Version 4.5
+## 🚀 Current Stable Release: Version 5.0
 
-Version 4.5 is the latest stable release and improves usability, settings management, and overall extension polish.
+Version 5.0 is the latest stable release and focuses on improving the live sports viewing experience on JioHotstar.
 
 ---
 
@@ -36,6 +36,41 @@ Version 4.5 is the latest stable release and improves usability, settings manage
 | ]         | Increase Playback Speed    |
 | [         | Decrease Playback Speed    |
 | \         | Reset Playback Speed to 1x |
+
+---
+
+### 🏏 Live Stream Controls (New in Version 5.0)
+
+Designed specifically for live sports streaming.
+
+Supported Streams:
+
+* Cricket
+* Football
+* Formula 1
+* Other JioHotstar live events
+
+#### Live Stream Shortcuts
+
+| Shortcut | Action                             |
+| -------- | ---------------------------------- |
+| J        | Jump Backward (Live Seek Duration) |
+| L        | Jump Forward (Live Seek Duration)  |
+
+#### Live Seek Duration Options
+
+* 10 seconds
+* 30 seconds
+* 60 seconds
+* 120 seconds
+
+Benefits:
+
+* Quickly review wickets
+* Rewatch goals and key moments
+* Review overtakes and incidents in F1
+* Faster navigation during live events
+* Works within Hotstar's available DVR buffer
 
 ---
 
@@ -71,12 +106,13 @@ Users can configure extension behavior directly from the popup.
 * Enable / Disable Overlay Notifications
 * Persistent Settings Storage using Chrome Storage API
 * Real-Time Settings Synchronization
+* Live Seek Duration Configuration
 
 All settings remain saved even after restarting Chrome.
 
 ---
 
-### 🚀 Playback Speed Controls
+### ⚡ Playback Speed Controls
 
 * Set preferred playback speed from extension popup
 * Automatically applied when a video loads
@@ -95,6 +131,7 @@ Visual feedback is displayed for:
 * Play / Pause status
 * Volume percentage changes
 * Playback speed changes
+* Live stream seek actions
 
 Examples:
 
@@ -105,11 +142,13 @@ Examples:
 ⏸ Paused
 🔊 80%
 ⚡ 1.75x
+🏏 Live -60s
+🏏 Live +60s
 ```
 
 ---
 
-### 🎨 Improved Popup UI (New in Version 4.5)
+### 🎨 Improved Popup UI
 
 * Cleaner layout design
 * Better section organization
@@ -131,6 +170,7 @@ Examples:
 * Real-time visual feedback
 * Persistent user preferences
 * Playback speed management
+* Live stream controls
 * Real-time settings updates
 * Works directly on JioHotstar video pages
 
@@ -206,6 +246,7 @@ Configure the extension popup:
 Skip Duration = 30 sec
 Volume Step = 20%
 Playback Speed = 1.75x
+Live Seek Duration = 60 sec
 Notifications = Enabled
 ```
 
@@ -217,15 +258,28 @@ Result:
 * Shift + ← jumps backward 90 seconds
 * ↑ increases volume by 20%
 * ↓ decreases volume by 20%
+* J jumps backward 60 seconds in live streams
+* L jumps forward 60 seconds in live streams
 * Videos automatically play at 1.75x speed
 
 ---
 
 ## 📦 Release History
 
-### 🚀 Version 4.5 (Current Stable Release)
+### 🚀 Version 5.0 (Current Stable Release)
 
 #### New Features
+
+* Live Stream Controls
+* Configurable Live Seek Duration
+* J Key Live Rewind
+* L Key Live Forward
+* Live Stream Overlay Notifications
+* Enhanced Sports Viewing Experience
+
+---
+
+### 🚀 Version 4.5
 
 * Improved Popup UI Design
 * Better Layout Organization
@@ -277,7 +331,8 @@ Result:
 
 | Version | Tag  | Status                 |
 | ------- | ---- | ---------------------- |
-| 4.5     | v4.5 | Current Stable Release |
+| 5.0     | v5.0 | Current Stable Release |
+| 4.5     | v4.5 | Previous Release       |
 | 4.0     | v4.0 | Previous Release       |
 | 3.0     | v3.0 | Previous Release       |
 | 2.0     | v2.0 | Previous Release       |
@@ -285,18 +340,18 @@ Result:
 
 ### Release Name
 
-**Hotstar Keyboard Controls Extension v4.5 – UI Improvements & Real-Time Settings Sync**
+**Hotstar Keyboard Controls Extension v5.0 – Live Stream Controls for Sports Streaming**
 
 ---
 
-## 🎯 Future Enhancements (v5.0)
+## 🎯 Future Enhancements (v6.0)
 
-* Keyboard Shortcut Customization
-* Fullscreen Toggle
-* Mute / Unmute Shortcut
-* Picture-in-Picture Mode
+* Enhanced Timeline Controls
+* Click-to-Seek Investigation
+* Jump to Live Shortcut
+* Live Position Indicator
+* Custom Keyboard Shortcuts
 * Multiple Streaming Platform Support
-* Dark / Light Themes
 * Chrome Web Store Publication
 
 ---
@@ -311,4 +366,4 @@ Feel free to fork the repository, submit issues, or create pull requests.
 
 ## ⭐ Acknowledgements
 
-Created as a learning project to explore Chrome Extension development, browser automation concepts, Chrome Storage API integration, playback speed controls, and keyboard accessibility for video streaming platforms.
+Created as a learning project to explore Chrome Extension development, browser automation concepts, Chrome Storage API integration, playback speed controls, live stream navigation, and keyboard accessibility for video streaming platforms.
