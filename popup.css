@@ -47,6 +47,13 @@ select{
     outline:none;
 }
 
+.shortcut-info{
+    font-size:13px;
+    color:#555;
+    line-height:1.7;
+    margin-top:8px;
+}
+
 select:focus{
     border-color:#4a90e2;
 }
